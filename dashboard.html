@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Front End - Web Developer Intern Test</title>
+    <script defer src="dashboard.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <nav class="bg-blue-400 flex justify-between p-4">
+      <div class="text-2xl font-bold">Dashboard</div>
+      <div class="relative">
+        <button id="userMenuButton" class="flex items-center">
+          <span id="usernameDisplay" class="mr-6 text-xl font-bold"></span>
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+        <div
+          id="userMenu"
+          class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded hidden"
+        >
+          <button
+            id="settingButton"
+            class="block px-4 py-2 text-sm text-gray-700"
+          >
+            Setting
+          </button>
+          <button
+            id="logoutButton"
+            class="block px-4 py-2 text-sm text-gray-700"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="p-6">
+      <h1 class="text-2xl text-center font-bold mt-10 mb-10">Daftar User</h1>
+      <div class="flex justify-center mb-4">
+        <input
+          type="text"
+          id="searchSongs"
+          placeholder="Search Song..."
+          class="w-full max-w-md px-4 py-2 border border-gray-300 rounded"
+          onkeyup="searchTableSong()"
+        />
+      </div>
+      <table class="table-fixed mx-auto border border-gray-300 mb-5">
+        <thead>
+          <tr>
+            <th class="border border-gray-300 px-4 py-2">Song</th>
+            <th class="border border-gray-300 px-4 py-2">Artist</th>
+            <th class="border border-gray-300 px-4 py-2">Year</th>
+          </tr>
+        </thead>
+        <tbody id="songTable">
+          <tr class="songRow">
+            <td class="border border-gray-300 px-4 py-2">
+              The Sliding Mr. Bones (Next Stop, Pottersville)
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Malcolm Lockyer</td>
+            <td class="border border-gray-300 px-4 py-2">1961</td>
+          </tr>
+          <tr class="songRow">
+            <td class="border border-gray-300 px-4 py-2">Witchy Woman</td>
+            <td class="border border-gray-300 px-4 py-2">The Eagles</td>
+            <td class="border border-gray-300 px-4 py-2">1972</td>
+          </tr>
+          <tr class="songRow">
+            <td class="border border-gray-300 px-4 py-2">Shining Star</td>
+            <td class="border border-gray-300 px-4 py-2">
+              Earth, Wind, and Fire
+            </td>
+            <td class="border border-gray-300 px-4 py-2">1975</td>
+          </tr>
+          <tr class="songRow">
+            <td class="border border-gray-300 px-4 py-2">Bohemian Rhapsody</td>
+            <td class="border border-gray-300 px-4 py-2">Queen</td>
+            <td class="border border-gray-300 px-4 py-2">1975</td>
+          </tr>
+          <tr class="songRow">
+            <td class="border border-gray-300 px-4 py-2">Hotel California</td>
+            <td class="border border-gray-300 px-4 py-2">The Eagles</td>
+            <td class="border border-gray-300 px-4 py-2">1977</td>
+          </tr>
+          <tr class="songRow">
+            <td class="border border-gray-300 px-4 py-2">Stairway to Heaven</td>
+            <td class="border border-gray-300 px-4 py-2">Led Zeppelin</td>
+            <td class="border border-gray-300 px-4 py-2">1971</td>
+          </tr>
+          <tr class="songRow">
+            <td class="border border-gray-300 px-4 py-2">Imagine</td>
+            <td class="border border-gray-300 px-4 py-2">John Lennon</td>
+            <td class="border border-gray-300 px-4 py-2">1971</td>
+          </tr>
+          <tr class="songRow">
+            <td class="border border-gray-300 px-4 py-2">Billie Jean</td>
+            <td class="border border-gray-300 px-4 py-2">Michael Jackson</td>
+            <td class="border border-gray-300 px-4 py-2">1982</td>
+          </tr>
+          <tr class="songRow">
+            <td class="border border-gray-300 px-4 py-2">
+              Like a Rolling Stone
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Bob Dylan</td>
+            <td class="border border-gray-300 px-4 py-2">1965</td>
+          </tr>
+          <tr class="songRow">
+            <td class="border border-gray-300 px-4 py-2">
+              Smells Like Teen Spirit
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Nirvana</td>
+            <td class="border border-gray-300 px-4 py-2">1991</td>
+          </tr>
+          <tr class="songRow">
+            <td class="border border-gray-300 px-4 py-2">What's Going On</td>
+            <td class="border border-gray-300 px-4 py-2">Marvin Gaye</td>
+            <td class="border border-gray-300 px-4 py-2">1971</td>
+          </tr>
+          <tr class="songRow">
+            <td class="border border-gray-300 px-4 py-2">
+              Rolling in the Deep
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Adele</td>
+            <td class="border border-gray-300 px-4 py-2">2010</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div id="pagination" class="flex justify-center mt-4">
+        <button id="prevButton" class="px-4 py-2 mx-1 bg-blue-500 text-white rounded hover:bg-blue-600">
+          Prev
+        </button>
+        <button id="page1" class="px-4 py-2 mx-1 bg-blue-500 text-white rounded hover:bg-blue-600" data-page="1">
+          1
+        </button>
+        <button id="page2" class="px-4 py-2 mx-1 bg-blue-500 text-white rounded hover:bg-blue-600" data-page="2">
+          2
+        </button>
+        <button id="page3" class="px-4 py-2 mx-1 bg-blue-500 text-white rounded hover:bg-blue-600" data-page="3">
+          3
+        </button>
+        <button id="nextButton" class="px-4 py-2 mx-1 bg-blue-500 text-white rounded hover:bg-blue-600">
+          Next
+        </button>
+      </div>
+      
+    </div>
+  </body>
+</html>
